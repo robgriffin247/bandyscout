@@ -15,18 +15,23 @@ def get_current_elitserien(api_key):
     current_standings_list = standings_json["standings"][0]["groups"][0]["standings"]
 
     standings_dict = ([
-        {"rank": row["rank"],
-         "change": row["change"],
-         "team": row["competitor"]["name"], 
+        {"team_rank": row["rank"],
+         "rank_change": row["change"],
+         "team_name": row["competitor"]["name"], 
          "team_abb": row["competitor"]["abbreviation"], 
-         "played": row["played"],
-         "won": row["win"],
-         "drawn": row["draw"],
-         "lost": row["loss"],
+         "games": row["played"],
+         "games_won": row["win"],
+         "games_drawn": row["draw"],
+         "games_lost": row["loss"],
          "points": row["points"],
-         "scored": row["goals_for"],
-         "conceded": row["goals_against"],
-         "goal_diff": row["goals_diff"]} 
+         "goals_scored": row["goals_for"],
+         "goals_conceded": row["goals_against"],
+         "goals_difference": row["goals_diff"],
+        } 
         for row in current_standings_list])
 
-    return pl.DataFrame(standings_dict)
+    standings = pl.DataFrame(standings_dict)
+
+
+
+    return standings
