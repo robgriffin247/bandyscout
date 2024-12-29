@@ -1,7 +1,7 @@
 import httpx
 import json
 import polars as pl
-
+import streamlit as st
 def get_current_elitserien(api_key):
 
     standings_url = f"https://api.sportradar.com/bandy/production/v2/en/seasons/sr:season:121299/standings.json?api_key={api_key}"
@@ -31,6 +31,20 @@ def get_current_elitserien(api_key):
         for row in current_standings_list])
 
     standings = pl.DataFrame(standings_dict)
+
+    team_name_mapping = {
+        "Broberg/Soderhamn BS":"Broberg/Söderhamn BS",
+        "Villa-Lidkoping BK":"Villa-Lidköping BK",
+        "Vasteraas SK":"Västerås SK",
+        "Bollnas GIF":"Bollnäs GIF",
+        "IFK Vanersborg":"IFK Vänersborg",
+        "Frillesaas BK":"Frillesås BK",
+        "Aby/Tjureda IF":"Åby/Tjureda IF",
+    }
+
+    standings = standings.with_columns(pl.col("team_name").replace(team_name_mapping))
+
+
 
 
 
