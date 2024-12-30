@@ -15,18 +15,18 @@ def get_current_elitserien(api_key):
     current_standings_list = standings_json["standings"][0]["groups"][0]["standings"]
 
     standings_dict = ([
-        {"team_rank": row["rank"],
+        {"rank": row["rank"],
          "rank_change": row["change"],
-         "team_name": row["competitor"]["name"], 
+         "team": row["competitor"]["name"], 
          "team_abb": row["competitor"]["abbreviation"], 
-         "games": row["played"],
-         "games_won": row["win"],
-         "games_drawn": row["draw"],
-         "games_lost": row["loss"],
+         "matches": row["played"],
+         "won": row["win"],
+         "drawn": row["draw"],
+         "lost": row["loss"],
          "points": row["points"],
-         "goals_scored": row["goals_for"],
-         "goals_conceded": row["goals_against"],
-         "goals_difference": row["goals_diff"],
+         "scored": row["goals_for"],
+         "conceded": row["goals_against"],
+         "difference": row["goals_diff"],
         } 
         for row in current_standings_list])
 
@@ -42,7 +42,7 @@ def get_current_elitserien(api_key):
         "Aby/Tjureda IF":"Åby/Tjureda IF",
     }
 
-    standings = standings.with_columns(pl.col("team_name").replace(team_name_mapping))
+    standings = standings.with_columns(pl.col("team").replace(team_name_mapping))
 
 
 
