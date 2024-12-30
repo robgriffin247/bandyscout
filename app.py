@@ -36,7 +36,4 @@ team_menu, location_menu = st.columns([6,4])
 team_results = choose_team(st.session_state["results"], team_menu)
 team_results = choose_location(team_results, location_menu)
 
-
-
-
 st.dataframe(team_results[["date", "home", "opponent", "scored", "conceded", "result"]])
