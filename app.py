@@ -3,13 +3,15 @@ import streamlit as st
 import duckdb 
 import polars as pl
 
-results = get_results()
-standings = get_standings(results)
+if 'results' not in st.session_state:
+    st.session_state["results"] = get_results()
+
+standings = get_standings(st.session_state["results"])
 
 st.dataframe(standings)
 
 def choose_team(data, menu):
-    menu.selectbox("Team", key="team", options=results["team"].unique().sort().to_list())
+    menu.selectbox("Team", key="team", options=st.session_state["results"]["team"].unique().sort().to_list())
 
     with duckdb.connect() as con:
         df = con.sql(f'''
@@ -31,10 +33,10 @@ def choose_location(data, menu):
 
 team_menu, location_menu = st.columns([6,4])
 
-team_results = choose_team(results, team_menu)
+team_results = choose_team(st.session_state["results"], team_menu)
 team_results = choose_location(team_results, location_menu)
 
 
-    
+
 
 st.dataframe(team_results[["date", "home", "opponent", "scored", "conceded", "result"]])
