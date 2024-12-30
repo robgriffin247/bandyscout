@@ -11,7 +11,7 @@ def get_current_elitserien(api_key):
     standings_response.raise_for_status()
 
     standings_json = json.loads(standings_response.content)
-
+    st.write(standings_json)
     current_standings_list = standings_json["standings"][0]["groups"][0]["standings"]
 
     standings_dict = ([
