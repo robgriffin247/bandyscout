@@ -12,7 +12,6 @@ if "matches" not in st.session_state:
     st.session_state["obt_fixtures"] = get_elitserien_fixtures(st.secrets["sportsradar"]["api_key"])
     
 
-
 # Uniform components:
 st.header("BandyScout")
 
