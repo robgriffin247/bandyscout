@@ -16,7 +16,7 @@ if "matches" not in st.session_state:
 st.header("BandyScout")
 
 standings_tab, results_tab = st.tabs(["Standings", "Results"])
-standings_tab, results_tab, fixtures_tab, teams_tab, players_tab = st.tabs(["Standings", "Results", "Fixtures", "Teams", "Players"])
+#standings_tab, results_tab, fixtures_tab, teams_tab, players_tab = st.tabs(["Standings", "Results", "Fixtures", "Teams", "Players"])
 
 
 # Tabs:
