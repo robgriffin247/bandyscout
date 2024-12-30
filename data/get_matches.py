@@ -40,3 +40,4 @@ def get_matches(api_key):
     data = pl.DataFrame(selected_data_scores)
 
     return data
+

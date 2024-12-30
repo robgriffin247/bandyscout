@@ -35,4 +35,6 @@ team_results = choose_team(results, team_menu)
 team_results = choose_location(team_results, location_menu)
 
 
+    
+
 st.dataframe(team_results[["date", "home", "opponent", "scored", "conceded", "result"]])
