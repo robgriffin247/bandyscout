@@ -11,7 +11,10 @@ import plotly.express as px
 # TODO:
 # - hourly update limit
 # - streaks on league
-
+# - form in league table
+# - change xaxis labels in form_figure
+# - fix status for villa-gripen
+# - dummy player & match data
 
 st.set_page_config(page_title="BandyScout", 
                    page_icon=":field_hockey_stick_and_ball:", 
@@ -35,15 +38,13 @@ with team_form_tab:
 
     team_menu, location_menu = st.columns([6,4])
 
-    st.markdown("-----\n")
     team_results = choose_team(st.session_state["results"], team_menu)
     team_results = choose_location(team_results, location_menu)
     team_results_table(team_results)
 
-    st.markdown("-----\n")
-    form_figure, results_figure,  = st.columns([8,4], gap="large")
-    form_figure.plotly_chart(form_bar(team_results))
+    results_figure, form_figure,  = st.columns([4,8], gap="large")
     results_figure.plotly_chart(results_pie(team_results))
+    form_figure.plotly_chart(form_bar(team_results))
 
 
 
