@@ -46,7 +46,6 @@ with team_form_tab:
                  use_container_width=True)
 
 
-
 with league_tab:
     standings = get_standings(st.session_state["results"])
     standings_table(standings)
