@@ -61,3 +61,5 @@ with team_form_tab:
 
 with league_tab:
     standings_table(st.session_state["standings"])
+
+
