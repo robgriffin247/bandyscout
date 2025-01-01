@@ -11,8 +11,6 @@ if 'results' not in st.session_state:
 
 team_form_tab, league_tab = st.tabs(["Team Form", "League"])
 
-
-
 with team_form_tab:
 
     def choose_team(data, menu):
