@@ -107,6 +107,10 @@ def get_results(data):
                             when scored=conceded then 'D'
                             when scored<conceded then 'L' 
                             else NULL end as result, 
+                        case when scored>conceded then 'Win'
+                            when scored=conceded then 'Draw'
+                            when scored<conceded then 'Loss' 
+                            else NULL end as result_long, 
                         case when scored>conceded then 2
                             when scored=conceded then 1
                             when scored<conceded then 0 

@@ -1,10 +1,11 @@
 from data.get_assets import get_matches, get_results, get_standings
-from streamlit_components.tables import table_height, standings_table
 from streamlit_components.menus import choose_team, choose_location
+from streamlit_components.tables import team_results_table, standings_table
+from streamlit_components.figures import results_bar
 import streamlit as st
 
 import duckdb 
-import polars as pl
+import pandas as pd
 import plotly.express as px
 
 
@@ -31,33 +32,12 @@ with team_form_tab:
 
     team_results = choose_team(st.session_state["results"], team_menu)
     team_results = choose_location(team_results, location_menu)
-
-    st.dataframe(team_results[["date", "home_away", "result", "score_formatted",  "opponent"]].sort(["date"], descending=True),
-                 height=table_height(6),
-                 use_container_width=True,
-                 column_config={
-                     "date":st.column_config.DateColumn("Date", format="DD/MM", width="small"),
-                     "home_away":st.column_config.TextColumn("H/A", width="small"),
-                     "result":st.column_config.TextColumn("Result", width="small"),
-                     "score_formatted":st.column_config.TextColumn("Score (HT)", width="small"),
-                     "opponent":st.column_config.TextColumn("Opponent", width="large"),
-                 })
-
-
-    form_pie_chart, _ = st.columns(2)
-
-    def form_pie(data):
-        
-        with duckdb.connect() as con:
-            counts = con.sql('select result, count(result) as n from data group by result').pl()
-
-        form_pie = px.pie(counts, values='n', names='result',
-                          hole=0.6
-                          )
-
-        return form_pie
     
-    form_pie_chart.plotly_chart(form_pie(team_results))
+    team_results_table(team_results)
+
+    results_figure, _ = st.columns([2,8])
+
+    results_figure.plotly_chart(results_bar(team_results))
 
 with league_tab:
     standings_table(st.session_state["standings"])
