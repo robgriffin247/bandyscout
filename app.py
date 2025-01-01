@@ -20,7 +20,7 @@ if 'matches' not in st.session_state:
 
 
 # Page setup
-team_form_tab, league_tab = st.tabs(["Team Form", "League"])
+team_form_tab, league_tab = st.tabs(["Teams", "League"])
 
 
 
@@ -32,24 +32,32 @@ with team_form_tab:
     team_results = choose_team(st.session_state["results"], team_menu)
     team_results = choose_location(team_results, location_menu)
 
-    st.dataframe(team_results[["date", "home_away", "opponent", "scored", "conceded", "result"]].sort(["date"], descending=True),
+    st.dataframe(team_results[["date", "home_away", "result", "score_formatted",  "opponent"]].sort(["date"], descending=True),
                  height=table_height(6),
                  use_container_width=True,
                  column_config={
-                     "date":st.column_config.DateColumn("Date", format="DD/MM")
+                     "date":st.column_config.DateColumn("Date", format="DD/MM", width="small"),
+                     "home_away":st.column_config.TextColumn("H/A", width="small"),
+                     "result":st.column_config.TextColumn("Result", width="small"),
+                     "score_formatted":st.column_config.TextColumn("Score (HT)", width="small"),
+                     "opponent":st.column_config.TextColumn("Opponent", width="large"),
                  })
+
+
+    form_pie_chart, _ = st.columns(2)
 
     def form_pie(data):
         
         with duckdb.connect() as con:
             counts = con.sql('select result, count(result) as n from data group by result').pl()
 
-        form_pie = px.pie(counts, 
-                          values='n', names='result', title='Results')
+        form_pie = px.pie(counts, values='n', names='result',
+                          hole=0.6
+                          )
 
         return form_pie
     
-    st.plotly_chart(form_pie(team_results))
+    form_pie_chart.plotly_chart(form_pie(team_results))
 
 with league_tab:
     standings_table(st.session_state["standings"])

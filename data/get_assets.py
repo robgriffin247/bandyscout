@@ -34,9 +34,9 @@ def get_matches(api_key):
     selected_data_scores = []
     for event in selected_data:
         if event["status"]=="closed":
-            event["home_ht"]=f'({event["details"]["period_scores"][0]["home_score"]}'
+            event["home_ht"]=event["details"]["period_scores"][0]["home_score"]
             event["home_ft"]=event["details"]["home_score"]
-            event["away_ht"]=f'{event["details"]["period_scores"][0]["away_score"]})'
+            event["away_ht"]=event["details"]["period_scores"][0]["away_score"]
             event["away_ft"]=event["details"]["away_score"]
             pass
         else:
@@ -63,7 +63,9 @@ def get_results(data):
                             away as opponent, 
                             away_abb as opponent_abb,
                             home_ft as scored, 
-                            away_ft as conceded 
+                            away_ft as conceded,
+                            home_ht as scored_ht, 
+                            away_ht as conceded_ht 
                         from source),
                     away as (
                         select 
@@ -75,7 +77,9 @@ def get_results(data):
                             home as opponent, 
                             home_abb as opponent_abb,
                             away_ft as scored, 
-                            home_ft as conceded 
+                            home_ft as conceded,
+                            away_ht as scored_ht, 
+                            home_ht as conceded_ht 
                         from source),
                     all_matches as (select * from home union all select * from away),
                     fix_teamnames as (
@@ -99,16 +103,21 @@ def get_results(data):
                         from all_matches
                     ),
                     add_result as (select *, 
-                        case when scored>conceded then 'win'
-                            when scored=conceded then 'draw'
-                            when scored<conceded then 'loss' 
+                        case when scored>conceded then 'W'
+                            when scored=conceded then 'D'
+                            when scored<conceded then 'L' 
                             else NULL end as result, 
                         case when scored>conceded then 2
                             when scored=conceded then 1
                             when scored<conceded then 0 
                             else NULL end as points
-                        from fix_teamnames)
-                select * from add_result order by date, team
+                        from fix_teamnames),
+                     add_formatted as (
+                        select *, 
+                            concat(scored, '-', conceded, '  (', scored_ht, '-', conceded_ht, ')') as score_formatted
+                        from add_result
+                     )
+                select * from add_formatted order by date, team
                 ''').pl() 
         
     return df

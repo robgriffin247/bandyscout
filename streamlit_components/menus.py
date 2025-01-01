@@ -3,7 +3,7 @@ import streamlit as st
 import duckdb
 
 def choose_team(data, menu):
-    menu.selectbox("Team", key="team", options=st.session_state["results"]["team"].unique().sort().to_list())
+    menu.selectbox("Team", key="team", options=st.session_state["results"]["team"].unique().sort().to_list(), index=6)
 
     with duckdb.connect() as con:
         df = con.sql(f'''
@@ -15,9 +15,9 @@ def choose_location(data, menu):
     menu.selectbox("Matches", key="location", options=["All", "Home", "Away"])
         
     if st.session_state["location"]=='Home':
-        team_results = data.filter(pl.col("home"))
+        team_results = data.filter(pl.col("home_away")=="H")
     elif st.session_state["location"]=='Away':
-        team_results = data.filter(pl.col("home")==False)
+        team_results = data.filter(pl.col("home_away")=="A")
     else:
         team_results = data
 
