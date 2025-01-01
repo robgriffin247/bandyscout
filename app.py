@@ -9,6 +9,8 @@ import pandas as pd
 import plotly.express as px
 
 # TODO:
+# - add fixture list
+# - add league peek and next fixture to teams tab
 # - hourly update limit
 # - streaks on league
 # - form in league table

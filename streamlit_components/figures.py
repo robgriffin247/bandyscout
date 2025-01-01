@@ -26,10 +26,12 @@ def results_pie(data):
 def form_bar(team_results):
     with duckdb.connect() as con:
         df = con.sql('''
-            select opponent, round, concat(cast(round as string), ': ', opponent_abb, ' (', home_away, ')') as xlab, result, result_long, concat(scored, '-', conceded) as score, home_away, opponent, scored as n, 'Scored' as Goals
+            --select opponent, round, concat(cast(round as string), ': ', opponent_abb, ' (', home_away, ')') as xlab, result, result_long, concat(scored, '-', conceded) as score, home_away, opponent, scored as n, 'Scored' as Goals
+            select opponent, round, concat(opponent_abb, ' (', result, ')') as xlab, result, result_long, concat(scored, '-', conceded) as score, home_away, opponent, scored as n, 'Scored' as Goals
             from team_results
             union all
-            select opponent, round, concat(cast(round as string), ': ', opponent_abb, ' (', home_away, ')') as xlab, result, result_long, concat(scored, '-', conceded) as score, home_away, opponent, conceded as n, 'Conceded' as Goals
+            --select opponent, round, concat(cast(round as string), ': ', opponent_abb, ' (', home_away, ')') as xlab, result, result_long, concat(scored, '-', conceded) as score, home_away, opponent, conceded as n, 'Conceded' as Goals
+            select opponent, round, concat(opponent_abb, ' (', result, ')') as xlab, result, result_long, concat(scored, '-', conceded) as score, home_away, opponent, conceded as n, 'Conceded' as Goals
             from team_results
         ''').pl()
     
