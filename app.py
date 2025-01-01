@@ -31,7 +31,6 @@ if 'matches' not in st.session_state:
     st.session_state["standings"] = get_standings(st.session_state["results"])
 
 
-
 # Page setup
 team_form_tab, league_tab = st.tabs(["Teams", "League"])
 
