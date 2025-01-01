@@ -11,6 +11,7 @@ def choose_team(data, menu):
                     ''').pl()
     return df
 
+
 def choose_location(data, menu):
     menu.selectbox("Matches", key="location", options=["All", "Home", "Away"])
         

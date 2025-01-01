@@ -10,3 +10,4 @@ def table_height(data):
 def standings_table(data):
     st.dataframe(data,
                  height=table_height(data))
+    

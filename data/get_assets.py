@@ -122,7 +122,6 @@ def get_results(data):
         
     return df
 
-
 def get_standings(team_results):
     with duckdb.connect() as con:
         df = con.sql('''
