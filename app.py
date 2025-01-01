@@ -1,23 +1,30 @@
 from data.get_assets import get_matches, get_results, get_standings
 from streamlit_components.menus import choose_team, choose_location
 from streamlit_components.tables import team_results_table, standings_table
-from streamlit_components.figures import results_bar
+from streamlit_components.figures import results_pie, form_bar
 import streamlit as st
 
 import duckdb 
 import pandas as pd
 import plotly.express as px
 
-
 # TODO:
 # - hourly update limit
 # - streaks on league
+
+
+st.set_page_config(page_title="BandyScout", 
+                   page_icon=":field_hockey_stick_and_ball:", 
+                   layout="centered", 
+                   initial_sidebar_state="auto", 
+                   menu_items=None)
 
 # Generate datasets
 if 'matches' not in st.session_state:
     st.session_state["matches"] = get_matches(st.secrets["sportsradar"]["api_key"])
     st.session_state["results"] = get_results(st.session_state["matches"])
     st.session_state["standings"] = get_standings(st.session_state["results"])
+
 
 
 # Page setup
@@ -28,14 +35,21 @@ with team_form_tab:
 
     team_menu, location_menu = st.columns([6,4])
 
+    st.markdown("-----\n")
     team_results = choose_team(st.session_state["results"], team_menu)
     team_results = choose_location(team_results, location_menu)
-    
     team_results_table(team_results)
 
-    results_figure, _ = st.columns([2,8])
+    st.markdown("-----\n")
+    form_figure, results_figure,  = st.columns([8,4], gap="large")
+    form_figure.plotly_chart(form_bar(team_results))
+    results_figure.plotly_chart(results_pie(team_results))
 
-    results_figure.plotly_chart(results_bar(team_results))
+
+
+    
+
+
 
 with league_tab:
     standings_table(st.session_state["standings"])
