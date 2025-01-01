@@ -49,16 +49,15 @@ def get_matches(api_key):
     return data
 
 # Takes the matches dataframe into one row per team per match (2 rows per match, one for home team, one for away team)
-def get_results():
-    df = get_matches(st.secrets["sportsradar"]["api_key"])
+def get_results(data):
     with duckdb.connect() as con:
         df = con.sql('''
-                with source as (select * from df where status='closed'),
+                with source as (select * from data where status='closed'),
                     home as (
                         select 
                             date, 
                             round, 
-                            TRUE as home, 
+                            'H' as home_away, 
                             home as team, 
                             home_abb as team_abb, 
                             away as opponent, 
@@ -70,7 +69,7 @@ def get_results():
                         select 
                             date, 
                             round, 
-                            FALSE as home, 
+                            'A' as home_away, 
                             away as team, 
                             away_abb as team_abb, 
                             home as opponent, 
