@@ -12,6 +12,7 @@ def standings_table(data):
     st.dataframe(data,
                  height=table_height(data))
 
+
 def team_results_table(data):
     team_results = data.sort(["date"], descending=True)
 
