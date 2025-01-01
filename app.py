@@ -25,7 +25,7 @@ with team_form_tab:
         return df
 
     def choose_location(data, menu):
-        menu.selectbox("Home/Away", key="location", options=["All", "Home", "Away"])
+        menu.selectbox("Matches", key="location", options=["All", "Home", "Away"])
             
         if st.session_state["location"]=='Home':
             team_results = data.filter(pl.col("home"))
