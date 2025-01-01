@@ -1,15 +1,83 @@
+import httpx
+import json
 import duckdb
 import polars as pl
 import streamlit as st
-from data.get_matches import get_matches
 
+
+# Gets data from sportsradar into a table of matches (1 match per row)
+# Records date, round, home team, away team, match status, home and away ft and ht goals scored
+def get_matches(api_key):
+
+    url = f"https://api.sportradar.com/bandy/production/v2/en/seasons/sr:season:121299/summaries.json?api_key={api_key}"
+        
+    response = httpx.get(url)
+    
+    response.raise_for_status()
+
+    content = json.loads(response.content)
+
+    summaries = content["summaries"]
+
+    selected_data = ([
+        {"date": event["sport_event"]["start_time"],
+         "round": event["sport_event"]["sport_event_context"]["round"]["number"],
+         "home": event["sport_event"]["competitors"][0]["name"],
+         "home_abb": event["sport_event"]["competitors"][0]["abbreviation"],
+         "away": event["sport_event"]["competitors"][1]["name"],
+         "away_abb": event["sport_event"]["competitors"][1]["abbreviation"],
+         "status": event["sport_event_status"]["status"],
+         "details": event["sport_event_status"]
+        }
+        for event in summaries])
+
+    selected_data_scores = []
+    for event in selected_data:
+        if event["status"]=="closed":
+            event["home_ht"]=f'({event["details"]["period_scores"][0]["home_score"]}'
+            event["home_ft"]=event["details"]["home_score"]
+            event["away_ht"]=f'{event["details"]["period_scores"][0]["away_score"]})'
+            event["away_ft"]=event["details"]["away_score"]
+            pass
+        else:
+            pass
+        event.pop("details")
+        selected_data_scores.append(event)
+
+    data = pl.DataFrame(selected_data_scores)
+
+    return data
+
+# Takes the matches dataframe into one row per team per match (2 rows per match, one for home team, one for away team)
 def get_results():
     df = get_matches(st.secrets["sportsradar"]["api_key"])
     with duckdb.connect() as con:
         df = con.sql('''
                 with source as (select * from df where status='closed'),
-                    home as (select date, round, TRUE as home, home as team, away as opponent, home_ft as scored, away_ft as conceded from source),
-                    away as (select date, round, FALSE as home, away as team, home as opponent, away_ft as scored, home_ft as conceded from source),
+                    home as (
+                        select 
+                            date, 
+                            round, 
+                            TRUE as home, 
+                            home as team, 
+                            home_abb as team_abb, 
+                            away as opponent, 
+                            away_abb as opponent_abb,
+                            home_ft as scored, 
+                            away_ft as conceded 
+                        from source),
+                    away as (
+                        select 
+                            date, 
+                            round, 
+                            FALSE as home, 
+                            away as team, 
+                            away_abb as team_abb, 
+                            home as opponent, 
+                            home_abb as opponent_abb,
+                            away_ft as scored, 
+                            home_ft as conceded 
+                        from source),
                     all_matches as (select * from home union all select * from away),
                     fix_teamnames as (
                         select * exclude(team, opponent),
@@ -53,6 +121,7 @@ def get_standings(team_results):
                 with source as (select * from team_results),
                      base_table as (select
                         team,
+                        team_abb,
                         count(*) as matches,
                         sum(points) as points,
                         sum(case when result='win' then 1 else 0 end) as wins, 
@@ -62,7 +131,7 @@ def get_standings(team_results):
                         sum(conceded) as conceded,
                         sum(scored)-sum(conceded) as difference
                      from source
-                     group by team
+                     group by team, team_abb
                      ),
                      sort_table as (
                         select * from base_table order by points desc, difference desc, scored desc
