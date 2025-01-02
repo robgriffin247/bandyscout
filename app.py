@@ -1,6 +1,6 @@
 from data.get_assets import get_matches, get_results, get_standings
 from streamlit_components.menus import choose_team, choose_location
-from streamlit_components.tables import team_results_table, standings_table
+from streamlit_components.tables import standings_table
 from streamlit_components.figures import results_pie, form_bar
 import streamlit as st
 import os
@@ -50,12 +50,10 @@ with team_form_tab:
     #team_results_table(team_results)
     
     st.markdown("**Elitserien Standings**")
-    standings_table(st.session_state["standings"], st.session_state["team"])
-    
+    standings_table(st.session_state["results"], st.session_state["team"], st.session_state["location"])
+
     st.write(" ")
-
-    results_figure, form_figure,  = st.columns([4,8], gap="large")
-
+    results_figure, form_figure = st.columns([4,8], gap="large")
 
     with results_figure:
         st.markdown("**Results**")
@@ -64,15 +62,18 @@ with team_form_tab:
     with form_figure:
         st.markdown("**Recent Form**")
         st.plotly_chart(form_bar(team_results))
-
-
-
-    
+   
 
 
 
 with league_tab:
-    standings_table(st.session_state["standings"])
+    import polars as pl
+    st.write(" ")
+    table_container = st.container()
+    standings_location_menu, _ = st.columns([4,6])
+    standings_location_menu.selectbox("Matches", key="standings_location", options=["All", "Home", "Away"])
+    standings_table( st.session_state["results"], location=st.session_state["standings_location"], container=table_container)
+
 
 
 # Footer --------------------------------------------------------

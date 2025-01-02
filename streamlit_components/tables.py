@@ -1,6 +1,6 @@
 import polars as pl
 import streamlit as st
-import pandas as pd
+import duckdb
 
 win_color="#78c975"
 draw_color="#e6f1f5"
@@ -13,9 +13,46 @@ def table_height(data):
     else:
         return (data.shape[0]+1)*35+7
     
-def standings_table(data, team=None):
+
+def standings_table(data, team=None, location=None, container=None):
+    if location=="All":
+        pass
+    if location=="Home":
+        data=data.filter(pl.col("home_away")=="H")
+    if location=="Away":
+        data=data.filter(pl.col("home_away")=="A")
+
+    with duckdb.connect() as con:
+        data = con.sql('''
+                with source as (select * from data),
+                    base_table as (select
+                        team,
+                        team_abb,
+                        count(*) as matches,
+                        sum(points) as points,
+                        sum(case when result='W' then 1 else 0 end) as wins, 
+                        sum(case when result='D' then 1 else 0 end) as draws, 
+                        sum(case when result='L' then 1 else 0 end) as losses, 
+                        sum(scored) as scored,
+                        sum(conceded) as conceded,
+                        sum(scored)-sum(conceded) as difference
+                    from source
+                    group by team, team_abb
+                    ),
+                    sort_table as (
+                        select * from base_table order by points desc, difference desc, scored desc
+                    ),
+                    add_rank as (
+                        select 
+                            row_number() over (order by points desc, difference desc, scored desc) as rank, 
+                            * 
+                        from sort_table 
+                    )
+                    select * from add_rank
+                ''').pl()
+        
     if team==None:
-        df=data
+        pass
     else:
         team_rank = data.row(by_predicate=(pl.col("team") == team), named=True)["rank"]-1
         if team_rank==0:
@@ -24,27 +61,26 @@ def standings_table(data, team=None):
             ranks=[11,12,13]
         else:
             ranks=[team_rank-1, team_rank, team_rank+1]
-        df = st.session_state["standings"][ranks]
+        data = data[ranks]
 
-    st.dataframe(df, height=table_height(df))
-
-
-
-def team_results_table(data):
-    
-    team_results = data.sort(["date"], descending=True)
-
-    styled_team_results = pd.DataFrame(team_results, columns=team_results.columns)[["date", "home_away", "result", "score_formatted", "opponent"]]
-    styled_team_results = styled_team_results.style.map(lambda x: f"background-color: {win_color if x=='W' else loss_color if x=='L' else draw_color}", subset='result')
-    
-    st.dataframe(styled_team_results,
-                 height=table_height(6),
+    if container==None:
+        container = st.container()
+        
+    container.dataframe(data[["rank", "team", "matches", "points", "wins", "draws", "losses", "scored", "conceded", "difference"]],
+                 height=table_height(data),
                  use_container_width=True,
-                 hide_index=True,
                  column_config={
-                     "date":st.column_config.DateColumn("Date", format="DD/MM", width="small"),
-                     "home_away":st.column_config.TextColumn("H/A", width="small"),
-                     "result":st.column_config.TextColumn("Result", width="small"),
-                     "score_formatted":st.column_config.TextColumn("Score (HT)", width="small"),
-                     "opponent":st.column_config.TextColumn("Opponent", width="large"),
+                     "rank":st.column_config.NumberColumn("#"),
+                     "team":st.column_config.TextColumn("Team", width="medium"),
+                     "matches":st.column_config.NumberColumn("M"),
+                     "points":st.column_config.NumberColumn("P"),
+                     "wins":st.column_config.NumberColumn("W"),
+                     "draws":st.column_config.NumberColumn("D"),
+                     "losses":st.column_config.NumberColumn("L"),
+                     "scored":st.column_config.NumberColumn("GF"),
+                     "conceded":st.column_config.NumberColumn("GA"),
+                     "difference":st.column_config.NumberColumn("GD"),
                  })
+
+
+

@@ -11,7 +11,7 @@ import os
 # Records date, round, home team, away team, match status, home and away ft and ht goals scored
 def get_matches(api_key):
 
-    if os.path.exists("data/matches.csv") and (time.time() - os.path.getmtime("data/matches.csv")):
+    if os.path.exists("data/matches.csv") and (time.time() - os.path.getmtime("data/matches.csv"))<3600:
         data = pl.read_csv("data/matches.csv")
 
     else:    
