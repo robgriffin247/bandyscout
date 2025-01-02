@@ -7,6 +7,7 @@ draw_color="#e6f1f5"
 loss_color="#fa8578"
 
 
+
 def table_height(data):
     if type(data)==int:
         return (data+1)*35+7

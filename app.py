@@ -11,12 +11,10 @@ import time
 
 # TODO:
 # - add fixture list
-# - add league peek and next fixture to teams tab
-# - hourly update limit
+# - add next fixture to teams tab
 # - streaks on league
 # - form in league table
 # - change xaxis labels in form_figure
-# - fix status for villa-gripen
 # - dummy player & match data
 
 st.set_page_config(page_title="BandyScout", 
