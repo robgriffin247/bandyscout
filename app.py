@@ -48,7 +48,8 @@ with team_form_tab:
     
     st.write(" ")
     #team_results_table(team_results)
-
+    
+    st.markdown("**Elitserien Standings**")
     standings_table(st.session_state["standings"], st.session_state["team"])
     
     st.write(" ")

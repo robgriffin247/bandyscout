@@ -26,8 +26,8 @@ def standings_table(data, team=None):
             ranks=[team_rank-1, team_rank, team_rank+1]
         df = st.session_state["standings"][ranks]
 
-    st.markdown("**Elitserien Standings**")
     st.dataframe(df, height=table_height(df))
+
 
 
 def team_results_table(data):
