@@ -1,0 +1,187 @@
+date,round,home,home_abb,away,away_abb,status,home_ht,home_ft,away_ht,away_ft
+2024-10-25T17:00:00+00:00,1,Bollnas GIF,BOL,Frillesaas BK,FRI,closed,3,9,1,5
+2024-10-25T17:00:00+00:00,1,Edsbyns IF,EDS,Sandvikens AIK,SAN,closed,3,10,0,3
+2024-10-25T17:00:00+00:00,1,Gripen Trollhättan BK,GRT,IK Sirius BK,SIR,closed,2,3,3,4
+2024-10-25T17:00:00+00:00,1,Hammarby IF/BK,HAM,Villa-Lidkoping BK,VIL,closed,1,3,1,6
+2024-10-25T17:00:00+00:00,1,Vetlanda BK,VBK,Broberg/Soderhamn BS,BRO,closed,4,8,2,5
+2024-10-25T17:00:00+00:00,1,Aby/Tjureda IF,A/T,Ljusdals BK,LJU,closed,5,6,0,1
+2024-10-26T14:00:00+00:00,1,IFK Vanersborg,VAN,Vasteraas SK,VSK,closed,3,6,3,6
+2024-10-29T18:00:00+00:00,2,Bollnas GIF,BOL,Gripen Trollhättan BK,GRT,closed,1,2,0,2
+2024-10-29T18:00:00+00:00,2,Broberg/Soderhamn BS,BRO,IK Sirius BK,SIR,closed,2,5,3,4
+2024-10-29T18:00:00+00:00,2,Edsbyns IF,EDS,Frillesaas BK,FRI,closed,1,4,2,3
+2024-10-29T18:00:00+00:00,2,Vetlanda BK,VBK,Villa-Lidkoping BK,VIL,closed,1,3,5,11
+2024-10-29T18:00:00+00:00,2,Vasteraas SK,VSK,Ljusdals BK,LJU,closed,5,14,0,1
+2024-10-30T18:00:00+00:00,2,IFK Vanersborg,VAN,Hammarby IF/BK,HAM,closed,0,3,5,9
+2024-10-30T18:00:00+00:00,2,Sandvikens AIK,SAN,Aby/Tjureda IF,A/T,closed,2,6,2,2
+2024-11-01T16:00:00+00:00,3,IK Sirius BK,SIR,Edsbyns IF,EDS,postponed,,,,
+2024-11-01T18:00:00+00:00,3,Frillesaas BK,FRI,Vasteraas SK,VSK,closed,0,1,6,13
+2024-11-01T18:00:00+00:00,3,Villa-Lidkoping BK,VIL,Bollnas GIF,BOL,closed,4,12,4,5
+2024-11-01T18:00:00+00:00,3,Aby/Tjureda IF,A/T,Vetlanda BK,VBK,closed,2,5,3,4
+2024-11-01T18:00:00+00:00,3,Hammarby IF/BK,HAM,Sandvikens AIK,SAN,closed,4,6,2,3
+2024-11-01T19:00:00+00:00,3,Ljusdals BK,LJU,Broberg/Soderhamn BS,BRO,closed,1,2,1,6
+2024-11-02T14:00:00+00:00,3,Gripen Trollhättan BK,GRT,IFK Vanersborg,VAN,closed,3,5,5,6
+2024-11-05T18:00:00+00:00,4,Bollnas GIF,BOL,Hammarby IF/BK,HAM,closed,4,8,1,3
+2024-11-05T18:00:00+00:00,4,Broberg/Soderhamn BS,BRO,Villa-Lidkoping BK,VIL,closed,3,5,3,6
+2024-11-05T18:00:00+00:00,4,Edsbyns IF,EDS,Gripen Trollhättan BK,GRT,closed,6,7,2,4
+2024-11-05T18:00:00+00:00,4,IFK Vanersborg,VAN,IK Sirius BK,SIR,closed,2,2,3,6
+2024-11-05T18:00:00+00:00,4,Vetlanda BK,VBK,Ljusdals BK,LJU,closed,5,13,1,3
+2024-11-06T18:00:00+00:00,4,Vasteraas SK,VSK,Aby/Tjureda IF,A/T,closed,4,7,0,2
+2024-11-08T18:00:00+00:00,5,Broberg/Soderhamn BS,BRO,IFK Vanersborg,VAN,closed,1,7,4,5
+2024-11-08T18:00:00+00:00,5,Gripen Trollhättan BK,GRT,Sandvikens AIK,SAN,closed,3,9,1,3
+2024-11-08T18:00:00+00:00,5,Hammarby IF/BK,HAM,Frillesaas BK,FRI,closed,5,8,2,5
+2024-11-08T18:00:00+00:00,5,IK Sirius BK,SIR,Vetlanda BK,VBK,closed,2,6,1,4
+2024-11-08T18:00:00+00:00,5,Villa-Lidkoping BK,VIL,Vasteraas SK,VSK,closed,7,10,3,4
+2024-11-08T18:00:00+00:00,5,Aby/Tjureda IF,A/T,Edsbyns IF,EDS,closed,0,3,4,9
+2024-11-08T19:00:00+00:00,5,Ljusdals BK,LJU,Bollnas GIF,BOL,closed,1,2,4,6
+2024-11-10T16:00:00+00:00,3,IK Sirius BK,SIR,Edsbyns IF,EDS,closed,3,5,2,5
+2024-11-11T18:00:00+00:00,4,Sandvikens AIK,SAN,Frillesaas BK,FRI,closed,2,6,1,2
+2024-11-12T18:00:00+00:00,6,Bollnas GIF,BOL,Aby/Tjureda IF,A/T,closed,2,6,1,3
+2024-11-12T18:00:00+00:00,6,Frillesaas BK,FRI,Ljusdals BK,LJU,postponed,,,,
+2024-11-12T18:00:00+00:00,6,IFK Vanersborg,VAN,Vetlanda BK,VBK,closed,1,5,5,9
+2024-11-12T18:00:00+00:00,6,Vasteraas SK,VSK,IK Sirius BK,SIR,closed,4,10,2,3
+2024-11-13T18:00:00+00:00,6,Edsbyns IF,EDS,Broberg/Soderhamn BS,BRO,closed,5,13,0,0
+2024-11-13T18:00:00+00:00,6,Gripen Trollhättan BK,GRT,Hammarby IF/BK,HAM,closed,2,2,1,3
+2024-11-13T18:00:00+00:00,6,Sandvikens AIK,SAN,Villa-Lidkoping BK,VIL,closed,0,4,3,7
+2024-11-15T18:00:00+00:00,7,Broberg/Soderhamn BS,BRO,Bollnas GIF,BOL,closed,2,5,1,2
+2024-11-15T18:00:00+00:00,7,Aby/Tjureda IF,A/T,IFK Vanersborg,VAN,closed,1,3,1,3
+2024-11-15T19:00:00+00:00,7,Villa-Lidkoping BK,VIL,Frillesaas BK,FRI,closed,4,10,3,4
+2024-11-16T14:00:00+00:00,7,IK Sirius BK,SIR,Sandvikens AIK,SAN,closed,1,4,3,7
+2024-11-16T15:00:00+00:00,7,Vetlanda BK,VBK,Gripen Trollhättan BK,GRT,closed,1,4,2,4
+2024-11-16T15:00:00+00:00,7,Vasteraas SK,VSK,Edsbyns IF,EDS,closed,2,5,4,8
+2024-11-16T16:00:00+00:00,7,Ljusdals BK,LJU,Hammarby IF/BK,HAM,closed,0,1,4,8
+2024-11-18T18:00:00+00:00,6,Frillesaas BK,FRI,Ljusdals BK,LJU,postponed,,,,
+2024-11-20T18:00:00+00:00,8,Bollnas GIF,BOL,Vasteraas SK,VSK,closed,3,6,2,4
+2024-11-20T18:00:00+00:00,8,Edsbyns IF,EDS,Ljusdals BK,LJU,closed,5,13,0,2
+2024-11-20T18:00:00+00:00,8,Frillesaas BK,FRI,Aby/Tjureda IF,A/T,postponed,,,,
+2024-11-20T18:00:00+00:00,8,Gripen Trollhättan BK,GRT,Broberg/Soderhamn BS,BRO,closed,2,6,1,2
+2024-11-20T18:00:00+00:00,8,Hammarby IF/BK,HAM,IK Sirius BK,SIR,closed,0,2,2,6
+2024-11-20T18:00:00+00:00,8,Sandvikens AIK,SAN,Vetlanda BK,VBK,closed,4,4,1,4
+2024-11-20T18:00:00+00:00,8,Villa-Lidkoping BK,VIL,IFK Vanersborg,VAN,closed,7,14,0,3
+2024-11-24T12:00:00+00:00,6,Frillesaas BK,FRI,Ljusdals BK,LJU,closed,4,7,3,6
+2024-11-26T18:00:00+00:00,9,Broberg/Soderhamn BS,BRO,Hammarby IF/BK,HAM,closed,2,3,0,3
+2024-11-26T18:00:00+00:00,9,IFK Vanersborg,VAN,Frillesaas BK,FRI,closed,1,3,2,6
+2024-11-26T18:00:00+00:00,9,Ljusdals BK,LJU,Villa-Lidkoping BK,VIL,closed,2,3,5,11
+2024-11-26T18:00:00+00:00,9,Vetlanda BK,VBK,Edsbyns IF,EDS,closed,1,5,4,6
+2024-11-26T18:00:00+00:00,9,Vasteraas SK,VSK,Sandvikens AIK,SAN,closed,1,7,2,3
+2024-11-26T18:00:00+00:00,9,Aby/Tjureda IF,A/T,Gripen Trollhättan BK,GRT,closed,2,5,4,8
+2024-11-27T18:00:00+00:00,9,IK Sirius BK,SIR,Bollnas GIF,BOL,closed,2,5,0,1
+2024-11-29T18:00:00+00:00,10,Bollnas GIF,BOL,Vetlanda BK,VBK,closed,1,2,1,5
+2024-11-29T18:00:00+00:00,10,Edsbyns IF,EDS,IFK Vanersborg,VAN,closed,4,11,1,1
+2024-11-29T18:00:00+00:00,10,Hammarby IF/BK,HAM,Vasteraas SK,VSK,closed,2,4,8,13
+2024-11-29T18:00:00+00:00,10,Ljusdals BK,LJU,Gripen Trollhättan BK,GRT,closed,1,3,2,6
+2024-11-29T18:00:00+00:00,10,Sandvikens AIK,SAN,Broberg/Soderhamn BS,BRO,closed,2,5,3,7
+2024-11-30T13:00:00+00:00,10,Villa-Lidkoping BK,VIL,Aby/Tjureda IF,A/T,closed,4,10,4,7
+2024-11-30T14:00:00+00:00,10,Frillesaas BK,FRI,IK Sirius BK,SIR,closed,0,1,6,6
+2024-12-03T18:00:00+00:00,11,Bollnas GIF,BOL,Sandvikens AIK,SAN,closed,1,2,1,5
+2024-12-03T18:00:00+00:00,11,Gripen Trollhättan BK,GRT,Vasteraas SK,VSK,closed,0,8,4,6
+2024-12-03T18:00:00+00:00,11,IFK Vanersborg,VAN,Ljusdals BK,LJU,closed,4,8,3,4
+2024-12-03T18:00:00+00:00,11,Vetlanda BK,VBK,Frillesaas BK,FRI,closed,6,11,1,5
+2024-12-04T18:00:00+00:00,11,Broberg/Soderhamn BS,BRO,Aby/Tjureda IF,A/T,closed,4,6,0,4
+2024-12-04T18:00:00+00:00,11,Hammarby IF/BK,HAM,Edsbyns IF,EDS,closed,1,4,0,1
+2024-12-04T18:00:00+00:00,11,IK Sirius BK,SIR,Villa-Lidkoping BK,VIL,closed,2,6,1,3
+2024-12-06T18:00:00+00:00,12,Edsbyns IF,EDS,Bollnas GIF,BOL,closed,2,5,1,2
+2024-12-06T18:00:00+00:00,12,Sandvikens AIK,SAN,IFK Vanersborg,VAN,closed,1,2,2,8
+2024-12-06T18:00:00+00:00,12,Villa-Lidkoping BK,VIL,Gripen Trollhättan BK,GRT,postponed,5,5,0,0
+2024-12-07T14:00:00+00:00,12,Frillesaas BK,FRI,Broberg/Soderhamn BS,BRO,closed,0,2,0,3
+2024-12-07T15:00:00+00:00,12,Vasteraas SK,VSK,Vetlanda BK,VBK,closed,5,6,3,5
+2024-12-07T16:00:00+00:00,12,Ljusdals BK,LJU,IK Sirius BK,SIR,closed,1,1,2,7
+2024-12-07T16:00:00+00:00,12,Aby/Tjureda IF,A/T,Hammarby IF/BK,HAM,closed,3,4,2,8
+2024-12-11T18:00:00+00:00,13,Broberg/Soderhamn BS,BRO,Vasteraas SK,VSK,closed,4,7,1,3
+2024-12-11T18:00:00+00:00,13,Frillesaas BK,FRI,Gripen Trollhättan BK,GRT,closed,1,4,2,5
+2024-12-11T18:00:00+00:00,13,Hammarby IF/BK,HAM,Vetlanda BK,VBK,closed,2,3,2,4
+2024-12-11T18:00:00+00:00,13,IFK Vanersborg,VAN,Bollnas GIF,BOL,closed,2,3,2,4
+2024-12-11T18:00:00+00:00,13,Ljusdals BK,LJU,Sandvikens AIK,SAN,closed,2,4,6,10
+2024-12-11T18:00:00+00:00,13,IK Sirius BK,SIR,Aby/Tjureda IF,A/T,closed,5,8,3,3
+2024-12-11T18:00:00+00:00,13,Villa-Lidkoping BK,VIL,Edsbyns IF,EDS,closed,6,9,3,6
+2024-12-13T18:00:00+00:00,14,Vasteraas SK,VSK,Frillesaas BK,FRI,closed,4,8,2,5
+2024-12-13T19:00:00+00:00,14,Aby/Tjureda IF,A/T,Villa-Lidkoping BK,VIL,closed,0,1,6,11
+2024-12-14T14:00:00+00:00,14,Edsbyns IF,EDS,Hammarby IF/BK,HAM,closed,1,6,1,3
+2024-12-14T15:00:00+00:00,14,Sandvikens AIK,SAN,IK Sirius BK,SIR,closed,2,4,3,6
+2024-12-14T15:00:00+00:00,14,Vetlanda BK,VBK,IFK Vanersborg,VAN,closed,3,6,1,7
+2024-12-14T16:00:00+00:00,14,Gripen Trollhättan BK,GRT,Ljusdals BK,LJU,closed,2,6,0,2
+2024-12-14T18:00:00+00:00,14,Bollnas GIF,BOL,Broberg/Soderhamn BS,BRO,closed,4,5,1,1
+2024-12-17T18:00:00+00:00,15,Frillesaas BK,FRI,Edsbyns IF,EDS,closed,0,1,1,5
+2024-12-17T18:00:00+00:00,15,Hammarby IF/BK,HAM,IFK Vanersborg,VAN,closed,3,6,1,1
+2024-12-17T18:00:00+00:00,15,Ljusdals BK,LJU,Vasteraas SK,VSK,closed,2,3,4,7
+2024-12-17T18:00:00+00:00,15,Aby/Tjureda IF,A/T,Bollnas GIF,BOL,closed,2,3,0,3
+2024-12-18T18:00:00+00:00,15,Villa-Lidkoping BK,VIL,Sandvikens AIK,SAN,closed,1,5,1,4
+2024-12-18T18:00:00+00:00,15,Broberg/Soderhamn BS,BRO,Vetlanda BK,VBK,closed,2,4,3,6
+2024-12-18T18:00:00+00:00,15,IK Sirius BK,SIR,Gripen Trollhättan BK,GRT,closed,2,3,2,3
+2024-12-20T18:00:00+00:00,16,Frillesaas BK,FRI,Hammarby IF/BK,HAM,closed,2,4,2,4
+2024-12-20T18:00:00+00:00,16,Gripen Trollhättan BK,GRT,Aby/Tjureda IF,A/T,closed,4,8,1,4
+2024-12-20T18:00:00+00:00,16,Vasteraas SK,VSK,Bollnas GIF,BOL,closed,2,5,1,3
+2024-12-21T14:00:00+00:00,16,IFK Vanersborg,VAN,Broberg/Soderhamn BS,BRO,closed,3,6,1,3
+2024-12-21T16:00:00+00:00,16,Edsbyns IF,EDS,Villa-Lidkoping BK,VIL,closed,2,3,3,7
+2024-12-21T16:00:00+00:00,16,Vetlanda BK,VBK,IK Sirius BK,SIR,closed,3,6,0,3
+2024-12-22T17:00:00+00:00,16,Sandvikens AIK,SAN,Ljusdals BK,LJU,closed,3,10,2,5
+2024-12-26T12:15:00+00:00,17,Bollnas GIF,BOL,Edsbyns IF,EDS,closed,1,1,2,6
+2024-12-26T12:15:00+00:00,17,IK Sirius BK,SIR,Hammarby IF/BK,HAM,closed,0,2,2,4
+2024-12-26T14:00:00+00:00,17,Vetlanda BK,VBK,Aby/Tjureda IF,A/T,closed,3,6,1,2
+2024-12-26T16:00:00+00:00,17,Broberg/Soderhamn BS,BRO,Sandvikens AIK,SAN,closed,2,5,3,7
+2024-12-26T16:00:00+00:00,17,IFK Vanersborg,VAN,Gripen Trollhättan BK,GRT,closed,2,5,1,3
+2024-12-26T16:00:00+00:00,17,Vasteraas SK,VSK,Villa-Lidkoping BK,VIL,closed,3,5,4,9
+2024-12-26T17:00:00+00:00,17,Ljusdals BK,LJU,Frillesaas BK,FRI,closed,2,6,5,5
+2024-12-28T14:00:00+00:00,18,Gripen Trollhättan BK,GRT,Vetlanda BK,VBK,closed,0,4,9,9
+2024-12-28T14:00:00+00:00,18,Hammarby IF/BK,HAM,Bollnas GIF,BOL,closed,1,3,3,7
+2024-12-28T18:00:00+00:00,18,Villa-Lidkoping BK,VIL,Ljusdals BK,LJU,closed,5,10,2,5
+2024-12-29T12:00:00+00:00,18,Frillesaas BK,FRI,IFK Vanersborg,VAN,closed,1,3,1,4
+2024-12-29T14:00:00+00:00,18,IK Sirius BK,SIR,Broberg/Soderhamn BS,BRO,closed,0,1,0,2
+2024-12-29T14:00:00+00:00,18,Aby/Tjureda IF,A/T,Sandvikens AIK,SAN,closed,2,7,4,6
+2024-12-29T16:00:00+00:00,18,Edsbyns IF,EDS,Vasteraas SK,VSK,closed,2,5,2,4
+2025-01-02T18:00:00+00:00,8,Frillesaas BK,FRI,Aby/Tjureda IF,A/T,live,,,,
+2025-01-04T14:00:00+00:00,19,IFK Vanersborg,VAN,Villa-Lidkoping BK,VIL,not_started,,,,
+2025-01-04T14:00:00+00:00,19,Ljusdals BK,LJU,Aby/Tjureda IF,A/T,not_started,,,,
+2025-01-04T15:00:00+00:00,19,Vetlanda BK,VBK,Hammarby IF/BK,HAM,not_started,,,,
+2025-01-04T15:00:00+00:00,19,Vasteraas SK,VSK,Gripen Trollhättan BK,GRT,not_started,,,,
+2025-01-04T16:00:00+00:00,19,Broberg/Soderhamn BS,BRO,Frillesaas BK,FRI,not_started,,,,
+2025-01-04T17:00:00+00:00,19,Bollnas GIF,BOL,IK Sirius BK,SIR,not_started,,,,
+2025-01-05T15:00:00+00:00,19,Sandvikens AIK,SAN,Edsbyns IF,EDS,not_started,,,,
+2025-01-07T18:00:00+00:00,20,Hammarby IF/BK,HAM,Ljusdals BK,LJU,not_started,,,,
+2025-01-08T18:00:00+00:00,20,Frillesaas BK,FRI,Bollnas GIF,BOL,not_started,,,,
+2025-01-08T18:00:00+00:00,20,Gripen Trollhättan BK,GRT,Edsbyns IF,EDS,not_started,,,,
+2025-01-08T18:00:00+00:00,20,Sandvikens AIK,SAN,Vasteraas SK,VSK,not_started,,,,
+2025-01-08T18:00:00+00:00,20,IK Sirius BK,SIR,IFK Vanersborg,VAN,not_started,,,,
+2025-01-08T18:00:00+00:00,20,Villa-Lidkoping BK,VIL,Vetlanda BK,VBK,not_started,,,,
+2025-01-08T18:00:00+00:00,20,Aby/Tjureda IF,A/T,Broberg/Soderhamn BS,BRO,not_started,,,,
+2025-01-10T18:00:00+00:00,21,Gripen Trollhättan BK,GRT,Villa-Lidkoping BK,VIL,not_started,,,,
+2025-01-10T18:00:00+00:00,21,Vasteraas SK,VSK,Hammarby IF/BK,HAM,not_started,,,,
+2025-01-11T13:00:00+00:00,21,Edsbyns IF,EDS,Aby/Tjureda IF,A/T,not_started,,,,
+2025-01-11T14:00:00+00:00,21,IK Sirius BK,SIR,Frillesaas BK,FRI,not_started,,,,
+2025-01-11T15:00:00+00:00,21,IFK Vanersborg,VAN,Sandvikens AIK,SAN,not_started,,,,
+2025-01-11T16:00:00+00:00,21,Broberg/Soderhamn BS,BRO,Ljusdals BK,LJU,not_started,,,,
+2025-01-11T16:00:00+00:00,21,Vetlanda BK,VBK,Bollnas GIF,BOL,not_started,,,,
+2025-01-24T18:00:00+00:00,22,Bollnas GIF,BOL,IFK Vanersborg,VAN,not_started,,,,
+2025-01-24T18:00:00+00:00,22,Ljusdals BK,LJU,Edsbyns IF,EDS,not_started,,,,
+2025-01-24T18:00:00+00:00,22,Sandvikens AIK,SAN,Gripen Trollhättan BK,GRT,not_started,,,,
+2025-01-24T18:00:00+00:00,22,Villa-Lidkoping BK,VIL,IK Sirius BK,SIR,not_started,,,,
+2025-01-24T18:00:00+00:00,22,Aby/Tjureda IF,A/T,Vasteraas SK,VSK,not_started,,,,
+2025-01-25T14:00:00+00:00,22,Frillesaas BK,FRI,Vetlanda BK,VBK,not_started,,,,
+2025-01-25T15:00:00+00:00,22,Hammarby IF/BK,HAM,Broberg/Soderhamn BS,BRO,not_started,,,,
+2025-01-27T18:00:00+00:00,23,Sandvikens AIK,SAN,Bollnas GIF,BOL,not_started,,,,
+2025-01-28T18:00:00+00:00,23,Edsbyns IF,EDS,Vetlanda BK,VBK,not_started,,,,
+2025-01-28T18:00:00+00:00,23,Gripen Trollhättan BK,GRT,Frillesaas BK,FRI,not_started,,,,
+2025-01-28T18:00:00+00:00,23,Ljusdals BK,LJU,IFK Vanersborg,VAN,not_started,,,,
+2025-01-28T18:00:00+00:00,23,Vasteraas SK,VSK,Broberg/Soderhamn BS,BRO,not_started,,,,
+2025-01-28T18:00:00+00:00,23,Aby/Tjureda IF,A/T,IK Sirius BK,SIR,not_started,,,,
+2025-01-29T18:00:00+00:00,23,Villa-Lidkoping BK,VIL,Hammarby IF/BK,HAM,not_started,,,,
+2025-01-31T18:00:00+00:00,24,Broberg/Soderhamn BS,BRO,Edsbyns IF,EDS,not_started,,,,
+2025-01-31T18:00:00+00:00,24,Frillesaas BK,FRI,Villa-Lidkoping BK,VIL,not_started,,,,
+2025-01-31T18:00:00+00:00,24,Hammarby IF/BK,HAM,Gripen Trollhättan BK,GRT,not_started,,,,
+2025-01-31T18:00:00+00:00,24,IFK Vanersborg,VAN,Aby/Tjureda IF,A/T,not_started,,,,
+2025-01-31T18:00:00+00:00,24,IK Sirius BK,SIR,Vasteraas SK,VSK,not_started,,,,
+2025-01-31T18:00:00+00:00,24,Vetlanda BK,VBK,Sandvikens AIK,SAN,not_started,,,,
+2025-01-31T19:00:00+00:00,24,Bollnas GIF,BOL,Ljusdals BK,LJU,not_started,,,,
+2025-02-04T18:00:00+00:00,25,Edsbyns IF,EDS,IK Sirius BK,SIR,not_started,,,,
+2025-02-04T18:00:00+00:00,25,Gripen Trollhättan BK,GRT,Bollnas GIF,BOL,not_started,,,,
+2025-02-04T18:00:00+00:00,25,Ljusdals BK,LJU,Vetlanda BK,VBK,not_started,,,,
+2025-02-04T18:00:00+00:00,25,Sandvikens AIK,SAN,Hammarby IF/BK,HAM,not_started,,,,
+2025-02-04T18:00:00+00:00,25,Villa-Lidkoping BK,VIL,Broberg/Soderhamn BS,BRO,not_started,,,,
+2025-02-04T18:00:00+00:00,25,Vasteraas SK,VSK,IFK Vanersborg,VAN,not_started,,,,
+2025-02-04T18:00:00+00:00,25,Aby/Tjureda IF,A/T,Frillesaas BK,FRI,not_started,,,,
+2025-02-07T18:00:00+00:00,26,Bollnas GIF,BOL,Villa-Lidkoping BK,VIL,not_started,,,,
+2025-02-07T18:00:00+00:00,26,Broberg/Soderhamn BS,BRO,Gripen Trollhättan BK,GRT,not_started,,,,
+2025-02-07T18:00:00+00:00,26,Frillesaas BK,FRI,Sandvikens AIK,SAN,not_started,,,,
+2025-02-07T18:00:00+00:00,26,Hammarby IF/BK,HAM,Aby/Tjureda IF,A/T,not_started,,,,
+2025-02-07T18:00:00+00:00,26,IFK Vanersborg,VAN,Edsbyns IF,EDS,not_started,,,,
+2025-02-07T18:00:00+00:00,26,IK Sirius BK,SIR,Ljusdals BK,LJU,not_started,,,,
+2025-02-07T18:00:00+00:00,26,Vetlanda BK,VBK,Vasteraas SK,VSK,not_started,,,,

@@ -13,10 +13,21 @@ def table_height(data):
     else:
         return (data.shape[0]+1)*35+7
     
-def standings_table(data):
-    
-    st.dataframe(data,
-                 height=table_height(data))
+def standings_table(data, team=None):
+    if team==None:
+        df=data
+    else:
+        team_rank = data.row(by_predicate=(pl.col("team") == team), named=True)["rank"]-1
+        if team_rank==0:
+            ranks = [0, 1, 2]
+        elif team_rank==13:
+            ranks=[11,12,13]
+        else:
+            ranks=[team_rank-1, team_rank, team_rank+1]
+        df = st.session_state["standings"][ranks]
+
+    st.markdown("**Elitserien Standings**")
+    st.dataframe(df, height=table_height(df))
 
 
 def team_results_table(data):

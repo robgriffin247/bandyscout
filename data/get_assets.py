@@ -3,48 +3,60 @@ import json
 import duckdb
 import polars as pl
 import streamlit as st
-
-
+import time
+import os
+    
+    
 # Gets data from sportsradar into a table of matches (1 match per row)
 # Records date, round, home team, away team, match status, home and away ft and ht goals scored
 def get_matches(api_key):
 
-    url = f"https://api.sportradar.com/bandy/production/v2/en/seasons/sr:season:121299/summaries.json?api_key={api_key}"
+    if os.path.exists("data/matches.csv") and (time.time() - os.path.getmtime("data/matches.csv")):
+        data = pl.read_csv("data/matches.csv")
+
+    else:    
+        url = f"https://api.sportradar.com/bandy/production/v2/en/seasons/sr:season:121299/summaries.json?api_key={api_key}"
+            
+        response = httpx.get(url)
         
-    response = httpx.get(url)
-    
-    response.raise_for_status()
+        response.raise_for_status()
 
-    content = json.loads(response.content)
+        content = json.loads(response.content)
 
-    summaries = content["summaries"]
+        summaries = content["summaries"]
 
-    selected_data = ([
-        {"date": event["sport_event"]["start_time"],
-         "round": event["sport_event"]["sport_event_context"]["round"]["number"],
-         "home": event["sport_event"]["competitors"][0]["name"],
-         "home_abb": event["sport_event"]["competitors"][0]["abbreviation"],
-         "away": event["sport_event"]["competitors"][1]["name"],
-         "away_abb": event["sport_event"]["competitors"][1]["abbreviation"],
-         "status": event["sport_event_status"]["status"],
-         "details": event["sport_event_status"]
-        }
-        for event in summaries])
+        selected_data = ([
+            {"date": event["sport_event"]["start_time"],
+            "round": event["sport_event"]["sport_event_context"]["round"]["number"],
+            "home": event["sport_event"]["competitors"][0]["name"],
+            "home_abb": event["sport_event"]["competitors"][0]["abbreviation"],
+            "away": event["sport_event"]["competitors"][1]["name"],
+            "away_abb": event["sport_event"]["competitors"][1]["abbreviation"],
+            "status": event["sport_event_status"]["status"],
+            "details": event["sport_event_status"]
+            }
+            for event in summaries])
 
-    selected_data_scores = []
-    for event in selected_data:
-        if event["status"]=="closed":
-            event["home_ht"]=event["details"]["period_scores"][0]["home_score"]
-            event["home_ft"]=event["details"]["home_score"]
-            event["away_ht"]=event["details"]["period_scores"][0]["away_score"]
-            event["away_ft"]=event["details"]["away_score"]
-            pass
-        else:
-            pass
-        event.pop("details")
-        selected_data_scores.append(event)
+        selected_data_scores = []
+        for event in selected_data:
+            if event["status"]=="closed":
+                event["home_ht"]=event["details"]["period_scores"][0]["home_score"]
+                event["home_ft"]=event["details"]["home_score"]
+                event["away_ht"]=event["details"]["period_scores"][0]["away_score"]
+                event["away_ft"]=event["details"]["away_score"]
+            elif event["status"]=="postponed" and event["home"]=="Villa-Lidkoping BK" and event["away"]=="Gripen Trollhättan BK":
+                event["home_ht"]=5
+                event["home_ft"]=5
+                event["away_ht"]=0
+                event["away_ft"]=0
+            else:
+                pass
+            event.pop("details")
+            selected_data_scores.append(event)
 
-    data = pl.DataFrame(selected_data_scores)
+        data = pl.DataFrame(selected_data_scores)
+
+        data.write_csv("data/matches.csv")
 
     return data
 
@@ -52,7 +64,7 @@ def get_matches(api_key):
 def get_results(data):
     with duckdb.connect() as con:
         df = con.sql('''
-                with source as (select * from data where status='closed'),
+                with source as (select * from data where status='closed' or (status='postponed' and home='Villa-Lidkoping BK' and away='Gripen Trollhättan BK')),
                     home as (
                         select 
                             date, 
@@ -135,9 +147,9 @@ def get_standings(team_results):
                         team_abb,
                         count(*) as matches,
                         sum(points) as points,
-                        sum(case when result='win' then 1 else 0 end) as wins, 
-                        sum(case when result='draw' then 1 else 0 end) as draws, 
-                        sum(case when result='loss  ' then 1 else 0 end) as losses, 
+                        sum(case when result='W' then 1 else 0 end) as wins, 
+                        sum(case when result='D' then 1 else 0 end) as draws, 
+                        sum(case when result='L' then 1 else 0 end) as losses, 
                         sum(scored) as scored,
                         sum(conceded) as conceded,
                         sum(scored)-sum(conceded) as difference

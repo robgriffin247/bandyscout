@@ -3,10 +3,11 @@ from streamlit_components.menus import choose_team, choose_location
 from streamlit_components.tables import team_results_table, standings_table
 from streamlit_components.figures import results_pie, form_bar
 import streamlit as st
-
+import os
 import duckdb 
 import pandas as pd
 import plotly.express as px
+import time
 
 # TODO:
 # - add fixture list
@@ -32,20 +33,36 @@ if 'matches' not in st.session_state:
 
 
 # Page setup
+st.header("BandyScout")
 team_form_tab, league_tab = st.tabs(["Teams", "League"])
 
 # Tabs ------------------------------------------------------------------
 with team_form_tab:
 
+    st.write(" ")
+
     team_menu, location_menu = st.columns([6,4])
 
     team_results = choose_team(st.session_state["results"], team_menu)
     team_results = choose_location(team_results, location_menu)
-    team_results_table(team_results)
+    
+    st.write(" ")
+    #team_results_table(team_results)
+
+    standings_table(st.session_state["standings"], st.session_state["team"])
+    
+    st.write(" ")
 
     results_figure, form_figure,  = st.columns([4,8], gap="large")
-    results_figure.plotly_chart(results_pie(team_results))
-    form_figure.plotly_chart(form_bar(team_results))
+
+
+    with results_figure:
+        st.markdown("**Results**")
+        st.plotly_chart(results_pie(team_results))
+    
+    with form_figure:
+        st.markdown("**Recent Form**")
+        st.plotly_chart(form_bar(team_results))
 
 
 
@@ -55,3 +72,10 @@ with team_form_tab:
 
 with league_tab:
     standings_table(st.session_state["standings"])
+
+
+# Footer --------------------------------------------------------
+st.markdown(f"""
+            ----
+            *Data refreshed: {time.strftime('%Y-%m-%d %H:%M', time.localtime(float(os.path.getmtime('data/matches.csv'))))}*
+            """)
